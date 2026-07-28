@@ -57,3 +57,52 @@
 #include <iostream>
 using namespace std;
 
+// Function for Part A: Generate a single multiplication table for a given number
+void printSingleTable(int num) {
+    if (num <= 0) {
+        cout << "Error: Input must be a positive integer." << endl;
+        return;
+    }
+
+    cout << "Multiplication Table for " << num << ":" << endl;
+    for (int i = 1; i <= 12; i++) {
+        cout << num << " x " << i << " = " << (num * i) << endl;
+    }
+}
+
+// Function for Part B: Generate tables from 1 to N
+void printMultipleTables(int n) {
+    if (n <= 0) {
+        cout << "Error: Input must be a positive integer." << endl;
+        return;
+    }
+
+    for (int i = 1; i <= n; i++) {
+        printSingleTable(i);
+        if (i < n) {
+            cout << "-----------------------------------" << endl;
+        }
+    }
+}
+
+int main() {
+    int num;
+    cout << "Enter a number: ";
+    if (cin >> num) {
+        if (num <= 0) {
+            cout << "Error: Please enter a positive integer." << endl;
+            return 1;
+        }
+
+        // Part A Output
+        printSingleTable(num);
+
+        cout << "\n===================================\n" << endl;
+
+        // Part B Output
+        cout << "Bonus: Generating tables from 1 to " << num << ":\n" << endl;
+        printMultipleTables(num);
+    }
+
+    return 0;
+}
